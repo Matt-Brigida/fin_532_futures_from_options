@@ -1,0 +1,49 @@
+---
+title: "Futures from Options"
+date: "January 15, 2018"
+output: 
+  rmdformats::html_clean:
+    highlight: kate
+##  html_document:
+##   toc: true
+##   theme: spacelab
+##   toc_float:
+##     collapsed: false
+##     smooth_scroll: false
+---
+
+```{r knitr_init, echo=FALSE, cache=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+
+The goal of this project is for the student to understand how options are forwards/futures broken into a downside and upside component.  That is, a call option increase in value when the underlying increases, and a put option increases in value when the underlying decreases.  If you purchase a forward, you gain then the underlying increases, and lose when it decreases.  So you can put the options together in such a way that you *replicate* a long forward position.
+
+This project also introduces the idea of *replication*, which is integral in understanding financial markets and modern pricing methods.  If you are to find a price for a security, you first see if you can replicate it.  If so, the replication cost is the price of the security.  Only if it cannot be replicated do you use ideas like the CAPM.
+
+##  Assignment
+
+Say CL (futures contract for crude oil) for July delivery is presently trading for \$50.40.  Also, say there are the following options on this futures contract, both with a \$50 strike price.
+
+| type | price |
+|------|-------|
+| Call: |  \$0.60 |
+| Put:  |  \$0.40 |
+
+#.  Replicate a forward (long or short) contract using the options.  You will put the two contracts together in such a way as the combined position either equals a long or short forward.
+
+#.  Show graphically that your options positions combine to replicate a forward.
+
+#.  Use the replicated forward to create an arbitrage with the CL contract trading for \$50.40.
